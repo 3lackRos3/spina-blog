@@ -45,7 +45,7 @@ module Spina
       end
 
       def theme_layout
-        "#{current_theme.name.parameterize.underscore}/application"
+        "#{current_theme.name.parameterize.underscore}/blog/application"
       end
 
       def page
