@@ -30,7 +30,9 @@ en:
         title_placeholder: Post title
         content: Post content
         draft: Draft
+        pinned: Pinned
         draft_description: Great for when your post is not quite finished
+        pinned_description: Pinned post
         published_at: Publishing date/time
         slug: Permalink
         slug_description: Permalink URL for this post
