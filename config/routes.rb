@@ -1,14 +1,10 @@
 # frozen_string_literal: true
 
 Spina::Engine.routes.draw do
-  namespace :blog do
+  namespace :blog, path: path: Spina.config.blog_path do
     root to: 'posts#index'
 
     get ':id', to: 'posts#show', as: :post
-
-    # Redirects for old sites that used the old blog path
-    get 'posts/', to: redirect('/blog'), as: :old_index
-    get 'posts/:id', to: redirect('/blog/%{id}'), as: :old_post
 
     get 'feed.atom', to: 'posts#index', as: :rss_feed, defaults: { format: :atom }
     get 'categories/:id', to: 'categories#show', as: :category
