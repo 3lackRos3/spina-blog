@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 Spina::Engine.routes.draw do
-  namespace :blog, path: path: Spina.config.blog_path do
+  namespace :blog, path: Spina.config.blog_path do
     root to: 'posts#index'
 
     get ':id', to: 'posts#show', as: :post
