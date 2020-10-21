@@ -12,6 +12,7 @@ module Spina
 
       belongs_to :user
       belongs_to :category, inverse_of: :posts
+      belongs_to :sub_category, inverse_of: :posts, class_name: "Category", :foreign_key => 'sub_category_id'
 
       validates :title, :content, presence: true
 

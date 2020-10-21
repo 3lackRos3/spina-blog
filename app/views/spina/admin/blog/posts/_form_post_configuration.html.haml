@@ -11,6 +11,14 @@
 
     .horizontal-form-group
       .horizontal-form-label
+        = Spina::Blog::Post.human_attribute_name :sub_category
+      .horizontal-form-content
+        .select-dropdown
+          = f.select :sub_category_id, Spina::Blog::Category.all.collect{|u| [u.name, u.id]},
+            include_blank: true, prompt: true
+
+    .horizontal-form-group
+      .horizontal-form-label
         = Spina::Blog::Post.human_attribute_name :draft
         %small= Spina::Blog::Post.human_attribute_name :draft_description
       .horizontal-form-content
