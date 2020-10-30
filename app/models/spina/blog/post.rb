@@ -10,13 +10,14 @@ module Spina
 
       belongs_to :image, optional: true, class_name: 'Spina::Image'
 
-      belongs_to :user
+      belongs_to :user, optional: true, class_name: 'User'
       belongs_to :category, inverse_of: :posts
       belongs_to :sub_category, inverse_of: :posts, class_name: "Category", :foreign_key => 'sub_category_id'
 
       validates :title, :content, presence: true
 
       before_save :set_published_at
+      before_save :set_creator
 
       # Create a 301 redirect if the slug changed
       after_update :rewrite_rule, if: -> { saved_change_to_slug? }
@@ -30,6 +31,10 @@ module Spina
 
       private
 
+      def set_creator
+        self.creator = self.user_id
+      end
+      
       def set_published_at
         self.published_at = Time.now if !draft? && published_at.blank?
       end
