@@ -32,7 +32,7 @@ module Spina
       private
 
       def set_creator
-        self.creator = self.user_id
+        self.creator_id = self.user_id
       end
       
       def set_published_at
